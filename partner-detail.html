@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合作伙伴详情 - 立信管理咨询数智化创新</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="立信管理咨询logo">
+                <h1>立信管理咨询数智化创新</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="index.html#products">产品中心</a></li>
+                    <li><a href="index.html#features">核心优势</a></li>
+                    <li><a href="index.html#partners">合作伙伴</a></li>
+                    <li><a href="index.html#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="product-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> > <a href="index.html#partners">合作伙伴</a> > <span id="partner-name-breadcrumb">合作伙伴详情</span>
+            </div>
+            <h1 id="partner-title">合作伙伴详情</h1>
+            <p id="partner-subtitle">与行业领先企业携手共进，为客户提供更优质的服务</p>
+        </div>
+    </div>
+
+    <section class="partner-page">
+        <div class="container">
+            <div class="partner-header" id="partner-header">
+                <!-- 动态加载合作伙伴logo和名称 -->
+            </div>
+
+            <div class="partner-section">
+                <h2>公司介绍</h2>
+                <p id="partner-description"></p>
+            </div>
+
+            <div class="partner-section">
+                <h2>合作领域</h2>
+                <p id="partner-cooperation"></p>
+            </div>
+
+            <div class="partner-section">
+                <h2>合作案例</h2>
+                <div class="partner-cases" id="partner-cases">
+                    <!-- 动态加载合作案例 -->
+                </div>
+            </div>
+
+            <div class="partner-action">
+                <a href="index.html#contact" class="btn btn-primary">咨询合作方案</a>
+                <a href="index.html#partners" class="btn btn-outline">返回合作伙伴</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>开启您的数字化转型之旅</h2>
+            <p>立信管理咨询数智化创新团队，为您提供专业的数字化转型服务，助力企业实现数智化升级</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-primary">联系我们</a>
+                <a href="index.html#products" class="btn btn-secondary">了解产品</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="finance.html">财务域</a></li>
+                        <li><a href="marketing-crm.html">营销及客户关系管理</a></li>
+                        <li><a href="it-management.html">IT管理</a></li>
+                        <li><a href="supply-chain.html">供应链及物流</a></li>
+                        <li><a href="production-rd.html">生产研发及质量</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-column">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="procurement.html">采购及库存管理</a></li>
+                        <li><a href="hr.html">HR域</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-column">
+                    <h4>关于立信</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">新闻资讯</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 立信管理咨询数智化创新部门. 版权所有.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取URL参数
+            const urlParams = new URLSearchParams(window.location.search);
+            const partnerId = urlParams.get('partner');
+            
+            if (partnerId && partnerInfo[partnerId]) {
+                const partner = partnerInfo[partnerId];
+                
+                // 更新页面标题
+                document.title = partner.name + ' - 合作伙伴详情 - 立信管理咨询数智化创新';
+                
+                // 更新面包屑和标题
+                document.getElementById('partner-name-breadcrumb').textContent = partner.name;
+                document.getElementById('partner-title').textContent = partner.name;
+                document.getElementById('partner-subtitle').textContent = '立信管理咨询与' + partner.name + '的战略合作';
+                
+                // 更新合作伙伴头部信息
+                document.getElementById('partner-header').innerHTML = `
+                    <img src="${partner.logo}" alt="${partner.name}" class="partner-header-logo">
+                    <div class="partner-header-info">
+                        <h1>${partner.name}</h1>
+                        <p>立信管理咨询战略合作伙伴</p>
+                    </div>
+                `;
+                
+                // 更新公司介绍
+                document.getElementById('partner-description').textContent = partner.description;
+                
+                // 更新合作领域
+                document.getElementById('partner-cooperation').textContent = partner.cooperation;
+                
+                // 更新合作案例
+                const casesContainer = document.getElementById('partner-cases');
+                let casesHTML = '';
+                
+                partner.cases.forEach((caseItem, index) => {
+                    casesHTML += `
+                        <div class="case-item">
+                            <h4>案例 ${index + 1}：${caseItem}</h4>
+                            <p>在该项目中，立信管理咨询与${partner.name}紧密合作，为客户提供了专业的解决方案，帮助客户实现了业务流程优化和数字化转型，大幅提升了运营效率和管理水平。</p>
+                            <a href="#" class="btn btn-outline">查看详情</a>
+                        </div>
+                    `;
+                });
+                
+                casesContainer.innerHTML = casesHTML;
+            } else {
+                // 如果没有找到合作伙伴信息，显示错误信息
+                document.getElementById('partner-title').textContent = '未找到合作伙伴信息';
+                document.getElementById('partner-subtitle').textContent = '请返回合作伙伴页面查看其他合作伙伴';
+            }
+        });
+    </script>
+</body>
+</html>
